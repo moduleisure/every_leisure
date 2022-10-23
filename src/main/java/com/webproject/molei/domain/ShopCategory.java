@@ -1,12 +1,12 @@
-package com.webproject.domain;
+package com.webproject.molei.domain;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
 
-//@Entity
+@Entity
+@Table(name = "ShopCategory")
 public class ShopCategory {
 
     @Id

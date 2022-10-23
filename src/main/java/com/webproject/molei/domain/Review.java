@@ -1,4 +1,4 @@
-package com.webproject.domain;
+package com.webproject.molei.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ public class Review {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "shop_id")

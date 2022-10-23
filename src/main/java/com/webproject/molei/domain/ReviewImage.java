@@ -1,12 +1,11 @@
-package com.webproject.domain;
+package com.webproject.molei.domain;
 
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
 
+@Entity
+@Table(name = "ReviewImage")
 public class ReviewImage {
 
     @Id

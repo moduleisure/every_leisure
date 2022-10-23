@@ -1,4 +1,4 @@
-package com.webproject.domain;
+package com.webproject.molei.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;

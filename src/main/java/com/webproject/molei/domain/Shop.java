@@ -1,18 +1,14 @@
-package com.webproject.domain;
-
-import lombok.Getter;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
+package com.webproject.molei.domain;
 
 import javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.*;
 
-@Getter
-@ToString
+@Entity
 public class Shop {
 
     @Id
@@ -26,15 +22,15 @@ public class Shop {
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "admin_id")
-    private User admin;
+    private Users admin;
 
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "shop", cascade = ALL)
     private List<ShopCategory> shopCategories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "shop", cascade = ALL)
     private List<Review> reviews = new ArrayList<>();
 
 }
