@@ -1,18 +1,21 @@
 package com.webproject.domain;
 
-
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Embeddable
 public class Address
 {
-    @Id
-    private Long id;
-
     private String city;
     private String district;
     private String town;
     private String detail;
 
+    public Address(String city, String district, String town, String detail) {
+        this.city = city;
+        this.district = district;
+        this.town = town;
+        this.detail = detail;
+    }
 }

@@ -4,10 +4,12 @@ import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.FetchType.*;
 
 @Getter
 @ToString
@@ -22,11 +24,17 @@ public class Shop {
     @Column(length=100, nullable= false) private String opening_time;
     @Column(length=100, nullable= false) private String closing_time;
 
-    private Long admin_id;
-    private Long address_id;
+    @OneToOne(fetch = LAZY)
+    @JoinColumn(name = "admin_id")
+    private User admin;
 
+    @Embedded
+    private Address address;
 
-    protected Shop() {}
+    @OneToMany(mappedBy = "shop")
+    private List<ShopCategory> shopCategories = new ArrayList<>();
 
+    @OneToMany(mappedBy = "shop")
+    private List<Review> reviews = new ArrayList<>();
 
 }
