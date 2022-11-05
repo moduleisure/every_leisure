@@ -29,8 +29,12 @@ public class Shop {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "shop", cascade = ALL)
-    private List<ShopCategory> shopCategories = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "ShopCategory",
+            joinColumns = @JoinColumn(name = "shop_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "shop", cascade = ALL)
     private List<Review> reviews = new ArrayList<>();
