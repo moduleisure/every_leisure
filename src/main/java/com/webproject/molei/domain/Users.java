@@ -1,5 +1,8 @@
 package com.webproject.molei.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,8 +22,8 @@ public class Users {
     private LocalDateTime birthDay;
     private String phoneNumber;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    @CreatedDate  private LocalDateTime createdAt;
+    @LastModifiedDate  private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();
